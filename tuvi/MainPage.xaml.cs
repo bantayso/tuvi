@@ -34,6 +34,9 @@ namespace tuvi
 
             webClient = new WebClient();
             doc = new HtmlDocument();
+            doc.OptionFixNestedTags = true;
+            doc.OptionAutoCloseOnEnd = true;
+            doc.OptionWriteEmptyNodes = true;
 
             webClient.Encoding = Encoding.UTF8;
 
@@ -97,9 +100,10 @@ namespace tuvi
         {
             HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='news']");
             int i = 0;
+            //System.Diagnostics.Debug.WriteLine("result " + nodes.Count);
             foreach (HtmlNode div in nodes)
             {
-                System.Diagnostics.Debug.WriteLine(i + " " + div.InnerText);
+                System.Diagnostics.Debug.WriteLine(i + " ");
                 if (i == 0)
                 {
                     addToList(listTronDoi, div);
@@ -134,13 +138,17 @@ namespace tuvi
 
         public void addToList(List<PostItem> list, HtmlNode node)
         {
+            //System.Diagnostics.Debug.WriteLine("result " + node.InnerText);
             if (list == null || node == null) return;
-            HtmlNodeCollection nodes = node.SelectNodes("//li");
+            HtmlNodeCollection nodes = node.SelectNodes("//a[@class='title']");
+            System.Diagnostics.Debug.WriteLine("\nxxx" + nodes.Count);
             foreach (HtmlNode div in nodes)
             {
-                HtmlNode link = div.SelectSingleNode("//a");
-                list.Add(new PostItem(link.InnerText,link.GetAttributeValue("href","")));
+                //HtmlNode link = div.SelectSingleNode("//a");
+                list.Add(new PostItem(div.InnerText, div.GetAttributeValue("href", "")));
+                //System.Diagnostics.Debug.WriteLine("@@@ " + div.InnerText + " -- " + div.Attributes["href"]);
             }
+            System.Diagnostics.Debug.WriteLine("@@@ ");
         }
     }
 }
