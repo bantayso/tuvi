@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using HtmlAgilityPack;
 using System.Text;
@@ -18,7 +19,8 @@ namespace tuvi
     public partial class Page1 : PhoneApplicationPage
     {
         public string PAGE_URL = "http://tuvi.biz/thu-tu-cua-ban-244-detail.htm";
-        
+        public string page = "";
+
         public WebClient webClient;
         public HtmlDocument doc;
 
@@ -33,7 +35,19 @@ namespace tuvi
             webClient.Encoding = Encoding.UTF8;
 
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(WebClient_DownloadStringCompleted);
-            webClient.DownloadStringAsync(new Uri(PAGE_URL));
+            //webClient.DownloadStringAsync(new Uri(PAGE_URL));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //if (e.NavigationMode == NavigationMode.Back) return;
+            base.OnNavigatedTo(e);
+            
+            string url = NavigationContext.QueryString["url"];
+            page = NavigationContext.QueryString["page"];
+            webClient.DownloadStringAsync(new Uri(url));
+
+           
         }
 
         private void WebClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -63,15 +77,25 @@ namespace tuvi
             //{
             //    System.Diagnostics.Debug.WriteLine("> " + link.InnerText);
             //}
-            HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@class='content']");
+            string htmlString = "<html><head><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'></head><body>";
+            HtmlNode node;
+            if (page.Equals("12congiap"))
+            {
+                node = doc.DocumentNode.SelectSingleNode("//div[@class='entry']");
+                node.SelectSingleNode("//h3[@class='related_post_title']").Remove();
+                node.SelectSingleNode("//ul[@class='related_post']").Remove();
+            }
+            else
+            {
+                node = doc.DocumentNode.SelectSingleNode("//div[@class='content']");
+                
+            }
+
+            // load to webview
             if (node != null)
             {
-                string htmlString = "<html><head><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'></head><body>";
                 htmlString = htmlString + node.InnerHtml + "</body></html>";
-                
                 htmlString = ToExtendedASCII(htmlString);
-                // load to webview
-                
                 webBrowser.NavigateToString(htmlString);
                 System.Diagnostics.Debug.WriteLine(htmlString.Length);
             }

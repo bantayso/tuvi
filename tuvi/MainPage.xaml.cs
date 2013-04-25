@@ -21,6 +21,12 @@ namespace tuvi
         public WebClient webClient;
         public HtmlDocument doc;
 
+        public List<PostItem> listTronDoi = new List<PostItem>();
+        public List<PostItem> listTinhDuyen = new List<PostItem>();
+        public List<PostItem> listPhongThuy = new List<PostItem>();
+        public List<PostItem> listXemTuong = new List<PostItem>();
+        public List<PostItem> listXemBoi = new List<PostItem>();
+
         // Constructor
         public MainPage()
         {
@@ -52,14 +58,14 @@ namespace tuvi
                 list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/tuoisuu-contrau-150x150.jpg", "Tuổi Sửu", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-suu-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
                 list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIDAN-CONHO-150x150.jpg", "Tuổi Dần", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-dan-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
                 list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIMAO-CONMEO-150x150.jpg", "Tuổi Mẹo", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-mao-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITY-CONRAN1-150x150.jpg", "Tuổi Thìn", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITY-CONRAN1-150x150.jpg", "Tuổi Tỵ", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOINGO-CONNGUA-150x150.jpg", "Tuổi Ngọ", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIMUI-CONDE-150x150.jpg", "Tuổi Mùi", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITHAN-CONKHI-150x150.jpg", "Tuổi Thân", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIDAU-CONGA-150x150.jpg", "Tuổi Dậu", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITUAT-CONCHO-150x150.jpg", "Tuổi Tuất", ""));
-                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIHOI-CONLON-150x150.jpg", "Tuổi Hợi", ""));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITY-CONRAN1-150x150.jpg", "Tuổi Thìn", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-thin-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITY-CONRAN1-150x150.jpg", "Tuổi Tỵ", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-thin-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOINGO-CONNGUA-150x150.jpg", "Tuổi Ngọ", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-ngo-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIMUI-CONDE-150x150.jpg", "Tuổi Mùi", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-mui-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITHAN-CONKHI-150x150.jpg", "Tuổi Thân", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-than-trong-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIDAU-CONGA-150x150.jpg", "Tuổi Dậu", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-dau-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOITUAT-CONCHO-150x150.jpg", "Tuổi Tuất", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-tuat-nam-2013-nam-quy-ty-xem-tu-vi.html"));
+                list12ConGiap.Add(new ConGiap("http://tuvi2013.net/wp-content/uploads/2012/02/TUOIHOI-CONLON-150x150.jpg", "Tuổi Hợi", "http://tuvi2013.net/xem-tu-vi-2013/tu-vi-tuoi-hoi-nam-2013-nam-quy-ty-xem-tu-vi.html"));
 
                 list12giap.ItemsSource = list12ConGiap;
             }
@@ -77,6 +83,7 @@ namespace tuvi
                 {
                     // generate detail to panorama
                     parseHtml();
+                    lstTronDoi.ItemsSource = listTronDoi;
                 }
 
             }
@@ -89,18 +96,51 @@ namespace tuvi
         public void parseHtml()
         {
             HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='news']");
+            int i = 0;
             foreach (HtmlNode div in nodes)
             {
-                
+                System.Diagnostics.Debug.WriteLine(i + " " + div.InnerText);
+                if (i == 0)
+                {
+                    addToList(listTronDoi, div);
+                }
+                else if (i == 5)
+                {
+                    addToList(listTinhDuyen, div);
+                }
+                else if (i == 6)
+                {
+                    addToList(listPhongThuy, div);
+                }
+                else if (i == 7)
+                {
+                    addToList(listXemTuong, div);
+                }
+                else if (i == 8)
+                {
+                    addToList(listXemBoi, div);
+                } 
+                i++;
             }
         }
 
         private void list12giap_Tap(object sender, GestureEventArgs e)
         {
             ConGiap cg = (ConGiap)list12giap.SelectedItem;
-            System.Diagnostics.Debug.WriteLine(cg.url);
+            //System.Diagnostics.Debug.WriteLine(cg.url);
+        
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=12congiap", Uri.EscapeUriString(cg.url)), UriKind.Relative));
         }
 
-
+        public void addToList(List<PostItem> list, HtmlNode node)
+        {
+            if (list == null || node == null) return;
+            HtmlNodeCollection nodes = node.SelectNodes("//li");
+            foreach (HtmlNode div in nodes)
+            {
+                HtmlNode link = div.SelectSingleNode("//a");
+                list.Add(new PostItem(link.InnerText,link.GetAttributeValue("href","")));
+            }
+        }
     }
 }
