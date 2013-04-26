@@ -107,5 +107,10 @@
                 </ListBox>
             </controls:PanoramaItem>
         </controls:Panorama>
+
+        <google:BannerAd
+            xmlns:google="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7"
+            AdUnitID="a1512d725538489" Margin="0,96,0,624"></google:BannerAd>
     </Grid>
+    
 </phone:PhoneApplicationPage>
