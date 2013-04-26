@@ -23,7 +23,11 @@
        
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser HorizontalAlignment="Right" Name="webBrowser" VerticalAlignment="Top" Height="768" Width="468" Margin="0,0,-12,0" FontSize="22" />
+            <google:BannerAd
+            xmlns:google="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7"
+            AdUnitID="a1517a2b7168c09" Margin="0,0,-12,704" Height="80"></google:BannerAd>
+
+            <phone:WebBrowser HorizontalAlignment="Right" Name="webBrowser" VerticalAlignment="Top" Height="682" Width="450" Margin="0,86,6,0" FontSize="22" />
         </Grid>
     </Grid>
 

@@ -77,11 +77,6 @@ namespace tuvi
 
         public void parseHtml()
         {
-            //HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='content']");
-            //foreach (HtmlNode link in nodes)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("> " + link.InnerText);
-            //}
             string htmlString = "<html><head><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'></head><body>";
             HtmlNode node;
             if (page.Equals("12congiap"))
@@ -99,6 +94,8 @@ namespace tuvi
             // load to webview
             if (node != null)
             {
+                node = formatHTML(node);
+
                 htmlString = htmlString + node.InnerHtml + "</body></html>";
                 htmlString = ToExtendedASCII(htmlString);
                 webBrowser.NavigateToString(htmlString);
@@ -110,6 +107,25 @@ namespace tuvi
             }
             
             
+        }
+
+        private HtmlNode formatHTML(HtmlNode node)
+        {
+            HtmlDocument tempDoc = new HtmlDocument();
+            tempDoc.LoadHtml(node.InnerHtml);
+
+            if (!page.Equals("12congiap"))
+            {
+                HtmlNodeCollection imgs = tempDoc.DocumentNode.SelectNodes("//img");
+                if (imgs != null)
+                {
+                    foreach (HtmlNode img in imgs)
+                    {
+                        img.SetAttributeValue("src", PAGE_URL + img.Attributes["src"].Value );
+                    }
+                }
+            }
+            return tempDoc.DocumentNode;
         }
 
         private string ToExtendedASCII(string html)

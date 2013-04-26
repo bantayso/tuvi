@@ -49,8 +49,8 @@
                 <ListBox Name="lstTronDoi" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstTronDoi_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -63,8 +63,8 @@
                 <ListBox Name="lstTinhDuyen" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstTinhDuyen_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -75,8 +75,8 @@
                 <ListBox Name="lstPhongThuy" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstPhongThuy_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -87,8 +87,8 @@
                 <ListBox Name="lstXemTuong" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstXemTuong_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -99,8 +99,8 @@
                 <ListBox Name="lstXemboi" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstXemboi_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -110,7 +110,7 @@
 
         <google:BannerAd
             xmlns:google="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7"
-            AdUnitID="a1512d725538489" Margin="0,96,0,624"></google:BannerAd>
+            AdUnitID="a1517a2b7168c09" Margin="0,96,0,624"></google:BannerAd>
     </Grid>
     
 </phone:PhoneApplicationPage>
