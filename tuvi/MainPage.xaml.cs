@@ -87,6 +87,10 @@ namespace tuvi
                     // generate detail to panorama
                     parseHtml();
                     lstTronDoi.ItemsSource = listTronDoi;
+                    lstTinhDuyen.ItemsSource = listTinhDuyen;
+                    lstPhongThuy.ItemsSource = listPhongThuy;
+                    lstXemboi.ItemsSource = listXemBoi;
+                    lstXemTuong.ItemsSource = listXemTuong;
                 }
 
             }
@@ -100,7 +104,6 @@ namespace tuvi
         {
             HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='news']");
             int i = 0;
-            //System.Diagnostics.Debug.WriteLine("result " + nodes.Count);
             foreach (HtmlNode div in nodes)
             {
                 System.Diagnostics.Debug.WriteLine(i + " ");
@@ -131,8 +134,6 @@ namespace tuvi
         private void list12giap_Tap(object sender, GestureEventArgs e)
         {
             ConGiap cg = (ConGiap)list12giap.SelectedItem;
-            //System.Diagnostics.Debug.WriteLine(cg.url);
-        
             NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=12congiap", Uri.EscapeUriString(cg.url)), UriKind.Relative));
         }
 
@@ -140,15 +141,48 @@ namespace tuvi
         {
             //System.Diagnostics.Debug.WriteLine("result " + node.InnerText);
             if (list == null || node == null) return;
-            HtmlNodeCollection nodes = node.SelectNodes("//a[@class='title']");
+            
+            HtmlDocument tempDoc = new HtmlDocument();
+            tempDoc.LoadHtml(node.InnerHtml);
+
+            HtmlNodeCollection nodes = tempDoc.DocumentNode.SelectNodes("//a");
             System.Diagnostics.Debug.WriteLine("\nxxx" + nodes.Count);
             foreach (HtmlNode div in nodes)
             {
-                //HtmlNode link = div.SelectSingleNode("//a");
                 list.Add(new PostItem(div.InnerText, div.GetAttributeValue("href", "")));
                 //System.Diagnostics.Debug.WriteLine("@@@ " + div.InnerText + " -- " + div.Attributes["href"]);
             }
             System.Diagnostics.Debug.WriteLine("@@@ ");
+        }
+
+        private void lstTronDoi_Tap(object sender, GestureEventArgs e)
+        {
+            PostItem pi = (PostItem)lstTronDoi.SelectedItem;
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=trondoi", Uri.EscapeUriString(pi.url)), UriKind.Relative));
+        }
+
+        private void lstXemboi_Tap(object sender, GestureEventArgs e)
+        {
+            PostItem pi = (PostItem)lstXemboi.SelectedItem;
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=xemboi", Uri.EscapeUriString(pi.url)), UriKind.Relative));
+        }
+
+        private void lstXemTuong_Tap(object sender, GestureEventArgs e)
+        {
+            PostItem pi = (PostItem)lstXemTuong.SelectedItem;
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=xemtuong", Uri.EscapeUriString(pi.url)), UriKind.Relative));
+        }
+
+        private void lstPhongThuy_Tap(object sender, GestureEventArgs e)
+        {
+            PostItem pi = (PostItem)lstPhongThuy.SelectedItem;
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=phongthuy", Uri.EscapeUriString(pi.url)), UriKind.Relative));
+        }
+
+        private void lstTinhDuyen_Tap(object sender, GestureEventArgs e)
+        {
+            PostItem pi = (PostItem)lstTinhDuyen.SelectedItem;
+            NavigationService.Navigate(new Uri(string.Format("/PageDetail.xaml?url={0}&page=tinhduyen", Uri.EscapeUriString(pi.url)), UriKind.Relative));
         }
     }
 }

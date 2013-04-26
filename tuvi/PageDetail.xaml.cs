@@ -18,7 +18,7 @@ namespace tuvi
 {
     public partial class Page1 : PhoneApplicationPage
     {
-        public string PAGE_URL = "http://tuvi.biz/thu-tu-cua-ban-244-detail.htm";
+        public string PAGE_URL = "http://tuvi.biz/";
         public string page = "";
 
         public WebClient webClient;
@@ -45,9 +45,14 @@ namespace tuvi
             
             string url = NavigationContext.QueryString["url"];
             page = NavigationContext.QueryString["page"];
+
+            if (!page.Equals("12congiap"))
+            {
+                url = PAGE_URL + url;
+            }
+
             webClient.DownloadStringAsync(new Uri(url));
 
-           
         }
 
         private void WebClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -98,6 +103,10 @@ namespace tuvi
                 htmlString = ToExtendedASCII(htmlString);
                 webBrowser.NavigateToString(htmlString);
                 System.Diagnostics.Debug.WriteLine(htmlString.Length);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("error");
             }
             
             
