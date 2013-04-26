@@ -35,7 +35,7 @@
                                 <!--Replace rectangle with image
                                 <Rectangle Height="100" Width="100" Fill="#FFE5001b" Margin="12,0,9,0"/>-->
                                 <Image Height="100" Width="100" DataContext="{Binding}" Source="{Binding image}"></Image>
-                                <StackPanel Width="311">
+                                <StackPanel Width="311" Margin="0,0,0,5">
                                     <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                                 </StackPanel>
                             </StackPanel>
@@ -49,8 +49,8 @@
                 <ListBox Name="lstTronDoi" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstTronDoi_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <StackPanel Margin="0,0,0,5" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -63,8 +63,8 @@
                 <ListBox Name="lstTinhDuyen" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstTinhDuyen_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <StackPanel Margin="0,0,0,5" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -75,8 +75,8 @@
                 <ListBox Name="lstPhongThuy" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstPhongThuy_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <StackPanel Margin="0,0,0,5" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -87,8 +87,8 @@
                 <ListBox Name="lstXemTuong" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstXemTuong_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <StackPanel Margin="0,0,0,5" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -99,8 +99,8 @@
                 <ListBox Name="lstXemboi" Margin="0,0,-12,0" ItemsSource="{Binding Items}" Tap="lstXemboi_Tap">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17" Width="auto" Height="auto">
-                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <StackPanel Margin="0,0,0,5" Width="auto" Height="auto">
+                                <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

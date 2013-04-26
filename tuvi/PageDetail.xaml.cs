@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -24,9 +25,18 @@ namespace tuvi
         public WebClient webClient;
         public HtmlDocument doc;
 
+        //public BackgroundWorker bw = new BackgroundWorker();
+
         public Page1()
         {
             InitializeComponent();
+
+            //bw.WorkerReportsProgress = true;
+            //bw.WorkerSupportsCancellation = true;
+
+            //bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            //bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            //bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
 
             webClient = new WebClient();
             doc = new HtmlDocument();
@@ -35,7 +45,7 @@ namespace tuvi
             webClient.Encoding = Encoding.UTF8;
 
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(WebClient_DownloadStringCompleted);
-            //webClient.DownloadStringAsync(new Uri(PAGE_URL));
+ 
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -149,5 +159,20 @@ namespace tuvi
 
             return encodedHtml;
         }
+
+        /*private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }*/
     }
 }

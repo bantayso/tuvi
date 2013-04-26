@@ -139,7 +139,6 @@ namespace tuvi
 
         public void addToList(List<PostItem> list, HtmlNode node)
         {
-            //System.Diagnostics.Debug.WriteLine("result " + node.InnerText);
             if (list == null || node == null) return;
             
             HtmlDocument tempDoc = new HtmlDocument();
@@ -149,6 +148,7 @@ namespace tuvi
             System.Diagnostics.Debug.WriteLine("\nxxx" + nodes.Count);
             foreach (HtmlNode div in nodes)
             {
+                if (!div.GetAttributeValue("href", "").Equals("#"))
                 list.Add(new PostItem(div.InnerText, div.GetAttributeValue("href", "")));
                 //System.Diagnostics.Debug.WriteLine("@@@ " + div.InnerText + " -- " + div.Attributes["href"]);
             }
