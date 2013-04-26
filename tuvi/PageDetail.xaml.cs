@@ -45,7 +45,8 @@ namespace tuvi
             webClient.Encoding = Encoding.UTF8;
 
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(WebClient_DownloadStringCompleted);
- 
+            
+            adControl.TestDeviceIDs.Add("TEST_EMULATOR");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
