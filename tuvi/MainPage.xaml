@@ -20,9 +20,6 @@
  
         <!--Panorama control-->
         <controls:Panorama Title="Tử vi">
-            <controls:Panorama.Background>
-                <ImageBrush ImageSource="PanoramaBackground.png"/>
-            </controls:Panorama.Background>
 
             <!--Panorama item two-->
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
@@ -110,7 +107,9 @@
 
         <google:BannerAd
             xmlns:google="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7"
-            AdUnitID="a1517a2b7168c09" Margin="0,96,0,624"></google:BannerAd>
+            AdUnitID="a1517a2b7168c09" Margin="0,96,0,624" Name="adControl" >
+            
+        </google:BannerAd>
     </Grid>
     
 </phone:PhoneApplicationPage>
