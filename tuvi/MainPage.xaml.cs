@@ -46,8 +46,10 @@ namespace tuvi
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-            
-            
+
+            //byte[] myDeviceID = (byte[])Microsoft.Phone.Info.DeviceExtendedProperties.GetValue("DeviceUniqueId");
+            //string idAsString = Convert.ToBase64String(myDeviceID);
+            //adControl.TestDeviceIDs.Add(idAsString);
         }
 
         // Load data for the ViewModel Items
