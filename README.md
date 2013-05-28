@@ -3,5 +3,5 @@ tuvi
 
 tu vi
 
-solo ad rolodex reviews
-soloadrolodexreviews.com
+
+<a href="soloadrolodexreviews.com">solo ad rolodex review</a>
